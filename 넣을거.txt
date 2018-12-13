@@ -1,6 +1,6 @@
 전체 페이지 레이아웃 통일시키기
 
-index : (맨 하단 센터)github, instagram, 카카오톡아이디, 워터마크 작은폰트 c 2018 Jay Chung 왼쪽상단 홈버튼
+index : 카카오톡아이디, 워터마크 작은폰트 c 2018 Jay Chung 왼쪽상단 홈버튼
 publication : 논문 제목, 링크. 설명
 projects : 슬라이드(프로젝트 이미지들), 프로젝트 ppt 링크
 cv : cv수정
