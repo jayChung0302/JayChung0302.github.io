@@ -1,0 +1,30 @@
+<html>
+
+<head>
+  <meta http-http-equiv="Content-Type" content="text/html; charset = UTF-8">
+  <title>실험입니다.</title>
+  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('img').hide();
+      $('img').first().show();
+      $('img').css('width', 250);
+      setInterval(function() {
+        $('body').append($('img').first());
+        $('img').last().hide();
+        $('img').first().fadeIn().show();
+      }, 2000);
+    });
+  </script>
+</head>
+
+<body>
+  <center>
+    <img src="images/left.png">
+    <img src="images/right.png">
+    <img src="images/1.jpg">
+  </center>
+</body>
+
+</html>
