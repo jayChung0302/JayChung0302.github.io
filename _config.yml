@@ -1,8 +1,8 @@
-title: Hamilton
-description: A minimal and beautiful Jekyll theme best for writing and note-taking.
-author: Shangzhi Huang
-avatar: /logo.png
-email: ngzhio@gmail.com
+# title: MyGarage
+description: Dump Of The Probing
+author: Nate
+avatar: /assets/images/selfie1.png
+email: whtnek@gmail.com
 
 plugins:
   - jekyll-seo-tag
@@ -10,7 +10,7 @@ plugins:
   - jekyll-sitemap
   - jekyll-paginate
 
-paginate: 10
+paginate: 6
 
 # Uncomment the below line and set the tracking ID for enabling Google Analytics
 # 
@@ -27,17 +27,18 @@ exclude:
   - README.md
   - jekyll-theme-hamilton.gemspec
 
+skin: daylight
 # Jekyll SEO Tag (Optional)
 # =========================
 twitter:
   username: ngzhio
   card: summary
-logo: logo.png
+logo: /images/selfie2.jpg
 social:
-  name: Shangzhi Huang
+  name: Jisu Chung
   links:
     - https://twitter.com/ngzhio
     - https://www.facebook.com/ngzhio
-    - https://github.com/ngzhio
+    - https://github.com/jayChung0302
 google_site_verification: u4WXQl0Eu66rsQo2kRdCNx
 lang: en
