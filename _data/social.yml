@@ -1,7 +1,4 @@
 # fa regular
-- title: Company
-  url: https://www.dabeeo.com
-  icon: far fa-building
 
   # fa brands
 - title: GitHub
@@ -10,7 +7,7 @@
 
   # fa brands
 - title: LinkedIn
-  url: www.linkedin.com/in/nate-chung-746218164
+  url: https://www.linkedin.com/in/nate-chung-746218164/
   icon: fab fa-linkedin
 
   # fa brands
@@ -18,4 +15,7 @@
   url: https://www.buymeacoffee.com/jaychung
   icon: fa fa-coffee
 
+- title: Company
+  url: https://www.dabeeo.com
+  icon: far fa-building
 
