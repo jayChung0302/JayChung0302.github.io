@@ -12,9 +12,8 @@ plugins:
 
 paginate: 6
 
-# Uncomment the below line and set the tracking ID for enabling Google Analytics
-# 
-# google_analytics: 
+# Google Analytics tracking ID
+google_analytics: G-7GT5Q9K67G 
 
 # Uncomment the below lines and set the Disqus shortname for enabling Disqus
 # 
@@ -41,4 +40,4 @@ social:
     - https://www.facebook.com/ngzhio
     - https://github.com/jayChung0302
 google_site_verification: u4WXQl0Eu66rsQo2kRdCNx
-lang: en
+lang: ko
