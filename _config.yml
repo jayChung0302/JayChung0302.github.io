@@ -31,7 +31,8 @@ exclude:
 twitter:
   username: ngzhio
   card: summary
-logo: /images/selfie2.jpg
+logo: /assets/images/selfie2.jpg
+og_image: /assets/images/selfie1.png
 social:
   name: Jisu Chung
   links:
