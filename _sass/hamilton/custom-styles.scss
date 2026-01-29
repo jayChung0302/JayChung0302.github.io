@@ -67,3 +67,38 @@
     opacity: 0.8;
   }
 }
+
+// Related posts
+.related-posts {
+  margin-top: $spacing-unit;
+  padding-top: $spacing-unit;
+  border-top: 1px solid;
+  border-color: inherit;
+
+  h3 {
+    margin-bottom: $spacing-unit / 2;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  li {
+    margin-bottom: 0.5em;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1em;
+  }
+
+  a {
+    flex: 1;
+  }
+
+  time {
+    font-size: 0.85rem;
+    opacity: 0.6;
+    white-space: nowrap;
+  }
+}

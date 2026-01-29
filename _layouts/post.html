@@ -86,8 +86,41 @@ layout: default
     </nav>
   </footer>
 
+  {% assign related_posts = "" | split: "" %}
+  {% for tag in page.tags %}
+    {% for post in site.tags[tag] %}
+      {% if post.url != page.url %}
+        {% unless related_posts contains post %}
+          {% assign related_posts = related_posts | push: post %}
+        {% endunless %}
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+  {% for cat in page.categories %}
+    {% for post in site.categories[cat] %}
+      {% if post.url != page.url %}
+        {% unless related_posts contains post %}
+          {% assign related_posts = related_posts | push: post %}
+        {% endunless %}
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+  {% if related_posts.size > 0 %}
+  <section class="related-posts">
+    <h3>Related Posts</h3>
+    <ul>
+      {% for post in related_posts limit:3 %}
+      <li>
+        <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+        <time>{{ post.date | date: "%b %-d, %Y" }}</time>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
   {% if page.comments != false and jekyll.environment == "production" and site.disqus %}
     {% include disqus.html %}
   {% endif %}
-  
+
 </article>

@@ -7,3 +7,6 @@ Placeholder to allow defining custom head, in principle, you can add anything he
 <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
 <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.ico">
 <script defer src="{{ '/assets/js/dark-mode.js' | relative_url }}"></script>
+{% if jekyll.environment == 'production' %}
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7990125665904262" crossorigin="anonymous"></script>
+{% endif %}
