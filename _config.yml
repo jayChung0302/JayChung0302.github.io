@@ -15,9 +15,7 @@ paginate: 6
 # Google Analytics tracking ID
 google_analytics: G-7GT5Q9K67G 
 
-# Uncomment the below lines and set the Disqus shortname for enabling Disqus
-# 
-# disqus:
+disqus: https-jaychung0302-github-io
 
 # Jekyll
 # ======
@@ -26,7 +24,7 @@ exclude:
   - README.md
   - jekyll-theme-hamilton.gemspec
 
-skin: daylight
+# skin: daylight  # Managed by dark mode toggle JavaScript
 # Jekyll SEO Tag (Optional)
 # =========================
 twitter:

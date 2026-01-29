@@ -20,6 +20,11 @@
 
   <a class="site-title" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
 
+  <button id="theme-toggle" class="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">
+    <i class="fas fa-sun" id="theme-icon-light"></i>
+    <i class="fas fa-moon" id="theme-icon-dark" style="display:none;"></i>
+  </button>
+
   {% if site.data.navigation %}
     <nav class="site-nav">
       <input type="checkbox" id="nav-trigger" class="nav-trigger" />
