@@ -26,6 +26,9 @@ layout: default
           <time class="dt-published" datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">
             {{ post.date | date: date_format }}
           </time>
+          {%- assign words = post.content | strip_html | number_of_words -%}
+          {%- assign reading_time = words | divided_by: 200 | plus: 1 -%}
+          • {{ reading_time }} min read
           {%- if jekyll.environment == "production" and site.disqus -%}
             • <a href="{{ post.url | relative_url }}#disqus_thread">
                 <span class="disqus-comment-count" data-disqus-url="{{ post.url | absolute_url }}"></span>

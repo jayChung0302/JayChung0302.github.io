@@ -15,5 +15,5 @@ I hold a master’s degree in the department of Electrical & Electronic Engineer
 
 Through this blog, I aim to document not only what works, but why it works—especially in complex areas such as 3D reconstruction, large-scale vision pipelines, and research-to-product execution.<br>
 
-For more information, please contact me via <a href="mailto:whtnek@gmail.com">email</a> or LinkedIn.
+For more information, please contact me via <a href="mailto:whtnek@gmail.com">email</a> or <a href="https://www.linkedin.com/in/nate-chung-746218164/">LinkedIn</a>.
 </b></p>
