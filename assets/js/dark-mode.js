@@ -27,11 +27,10 @@
     localStorage.setItem('theme', theme);
   }
 
-  // Set initial icon state
-  if (getCurrentTheme() === 'midnight') {
-    iconLight.style.display = 'none';
-    iconDark.style.display = 'inline';
-  }
+  // Sync icon state with theme set by early-init script in head.html
+  var currentTheme = getCurrentTheme();
+  iconLight.style.display = currentTheme === 'midnight' ? 'none' : 'inline';
+  iconDark.style.display = currentTheme === 'midnight' ? 'inline' : 'none';
 
   toggleButton.addEventListener('click', function () {
     var next = (getCurrentTheme() === 'daylight') ? 'midnight' : 'daylight';

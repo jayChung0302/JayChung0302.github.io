@@ -13,7 +13,7 @@ layout: default
         {{ page.date | date: date_format }}
       </time>
       {%- if page.last_modified_at -%}
-        ~ 
+        ~
         {%- assign mdate = page.last_modified_at | date_to_xmlschema -%}
         <time class="dt-modified" datetime="{{ mdate }}" itemprop="dateModified">
           {{ mdate | date: date_format }}
@@ -26,6 +26,9 @@ layout: default
             {%- if forloop.last == false %}, {% endif -%}
         {% endfor %}
       {%- endif -%}
+      {%- assign words = content | strip_html | number_of_words -%}
+      {%- assign reading_time = words | divided_by: 200 | plus: 1 -%}
+      • {{ reading_time }} min read
     </p>
 
   </header>
@@ -37,7 +40,7 @@ layout: default
   <footer class="post-footer">
     {% if page.categories.size > 0 %}
       <div class="post-meta">
-        <i class="fas fa-folder"></i>
+        {%- include icon.html name="folder" -%}
         <ul class="post-taxonomies post-categories">
           {% assign categories = page.categories | sort %}
           {% for category in categories %}
@@ -52,7 +55,7 @@ layout: default
 
     {% if page.tags.size > 0 %}
       <div class="post-meta">
-        <i class="fas fa-tags"></i>
+        {%- include icon.html name="tags" -%}
         <ul class="post-taxonomies post-tags">
           {% assign tags = page.tags | sort %}
           {% for tag in tags %}
@@ -65,12 +68,34 @@ layout: default
       </div>
     {% endif %}
 
+    <div class="share-buttons">
+      <a href="https://twitter.com/intent/tweet?url={{ page.url | absolute_url | url_encode }}&text={{ page.title | url_encode }}" target="_blank" rel="noopener noreferrer" aria-label="Share on X">
+        {%- include icon.html name="x-twitter" -%} Share
+      </a>
+      <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ page.url | absolute_url | url_encode }}" target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn">
+        {%- include icon.html name="linkedin" -%} Share
+      </a>
+      <button class="copy-url-btn" data-url="{{ page.url | absolute_url }}" aria-label="Copy link">
+        {%- include icon.html name="link" -%} <span>Copy URL</span>
+      </button>
+    </div>
+    <script>
+      document.querySelector('.copy-url-btn').addEventListener('click', function() {
+        var btn = this;
+        var span = btn.querySelector('span');
+        navigator.clipboard.writeText(btn.dataset.url).then(function() {
+          span.textContent = 'Copied!';
+          setTimeout(function() { span.textContent = 'Copy URL'; }, 2000);
+        });
+      });
+    </script>
+
     <nav class="post-pagination" role="navigation">
       {% if page.previous %}
         <a class="post-previous" href="{{ page.previous.url | relative_url }}">
           <h4 class="post-pagination-label">Prev</h4>
           <span class="post-pagination-title">
-            <i class="fas fa-arrow-left"></i> {{ page.previous.title | markdownify | strip_html }}
+            {%- include icon.html name="arrow-left" -%} {{ page.previous.title | markdownify | strip_html }}
           </span>
         </a>
       {% endif %}
@@ -79,7 +104,7 @@ layout: default
         <a class="post-next" href="{{ page.next.url | relative_url }}">
           <h4 class="post-pagination-label">Next</h4>
           <span class="post-pagination-title">
-            {{ page.next.title | markdownify | strip_html }} <i class="fas fa-arrow-right"></i>
+            {{ page.next.title | markdownify | strip_html }} {%- include icon.html name="arrow-right" -%}
           </span>
         </a>
       {% endif %}

@@ -13,19 +13,19 @@
   <ul class="contact-list">
     {% if site.author -%}
     <li>
-      <i class="sidebar-icon fas fa-at"></i>
+      <span class="sidebar-icon">{%- include icon.html name="at" -%}</span>
       <span class="contact-info p-name">{{ site.author | escape }}</span>
     </li>
     {%- endif %}
     {% if site.email -%}
     <li>
-      <i class="sidebar-icon fas fa-envelope"></i>
+      <span class="sidebar-icon">{%- include icon.html name="envelope" -%}</span>
       <a class="contact-info u-email" href="mailto:{{ site.email }}">{{ site.email }}</a>
     </li>
     {%- endif %}
     {% if site.location -%}
     <li>
-      <i class="sidebar-icon fas fa-location-arrow"></i>
+      <span class="sidebar-icon">{%- include icon.html name="location" -%}</span>
       <a class="contact-info u-location" href="https://www.google.com/maps/search/{{ site.location }}">{{ site.location
         }}</a>
     </li>
@@ -36,7 +36,7 @@
 {% if site.subscribe != false -%}
 <div class="sidebar-section feed-subscribe">
   <a href="{{ 'feed.xml' | relative_url }}">
-    <i class="sidebar-icon fas fa-rss"></i><span>Subscribe</span>
+    <span class="sidebar-icon">{%- include icon.html name="rss" -%}</span><span>Subscribe</span>
   </a>
 </div>
 {%- endif %}
@@ -46,8 +46,7 @@
   <ul class="social-icons">
     {% for social in site.data.social -%}
     <li>
-      <a class="social-icon" href="{{ social.url }}"><i class="{{ social.icon | default: 'fas fa-link' }} fa-2x"
-          title="{{ social.title }}"></i></a>
+      <a class="social-icon" href="{{ social.url }}" aria-label="{{ social.title }}">{%- include icon.html name=social.icon -%}</a>
     </li>
     {%- endfor %}
   </ul>

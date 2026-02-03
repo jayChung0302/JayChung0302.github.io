@@ -3,12 +3,10 @@
 
 <head>
   {% include head.html %}
-  {% if site.google_analytics %}
-    {% include google-analytics.html %}
-  {% endif %}
 </head>
 
 <body>
+  <a href="#site-main" class="skip-link">Skip to content</a>
   <div class="site-container">
     <header class="site-header">
       {% include header.html %}
@@ -22,14 +20,18 @@
         {% include sidebar.html %}
         {% endif %}
       </aside>
-      <main class="site-main" id="site-main" aria-label="Content" tabindex="1">
+      <main class="site-main" id="site-main" aria-label="Content" tabindex="-1">
         {{ content }}
+        <button class="back-to-top" aria-label="Back to top" style="display:none;">
+          {%- include icon.html name="chevron-up" -%} Top
+        </button>
         <footer class="site-footer">
           {% include footer.html %}
         </footer>
       </main>
     </div>
   </div>
+  <script defer src="{{ '/assets/js/back-to-top.js' | relative_url }}"></script>
 </body>
 
 </html>

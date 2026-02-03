@@ -1,28 +1,13 @@
 <div class="wrapper">
-  <script>
-    function clickSidebarButton() {
-      const elem = document.getElementById("site-sidebar")
-      if (elem.style.display == "none" || elem.style.display == "") {
-        elem.style.display = "block";
-      } else {
-        elem.style.display = "none";
-      }
-    }
-  </script>
-  <a class="site-sidebar-button" onclick="clickSidebarButton()">
-    {%- if site.avatar contains "://" -%}
-      {%- assign avatar = site.avatar -%}
-    {%- else -%}
-      {%- assign avatar = site.avatar | relative_url -%}
-    {%- endif -%}
-    <i class="far fa-user"></i>
-  </a>
+  <button class="site-sidebar-button" aria-expanded="false" aria-controls="site-sidebar" aria-label="Toggle sidebar">
+    {%- include icon.html name="user" -%}
+  </button>
 
   <a class="site-title" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
 
   <button id="theme-toggle" class="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">
-    <i class="fas fa-sun" id="theme-icon-light"></i>
-    <i class="fas fa-moon" id="theme-icon-dark" style="display:none;"></i>
+    <span id="theme-icon-light">{%- include icon.html name="sun" -%}</span>
+    <span id="theme-icon-dark" style="display:none;">{%- include icon.html name="moon" -%}</span>
   </button>
 
   {% if site.data.navigation %}
