@@ -13,3 +13,7 @@
 - title: Company
   url: https://www.dabeeo.com
   icon: building
+
+- title: LinkInBio
+  url: https://link-in-bio-nate.vercel.app/
+  icon: link
