@@ -5,12 +5,13 @@
 
   <a class="site-title" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
 
-  <button id="theme-toggle" class="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">
-    <span id="theme-icon-light">{%- include icon.html name="sun" -%}</span>
-    <span id="theme-icon-dark" style="display:none;">{%- include icon.html name="moon" -%}</span>
-  </button>
+  <div class="header-right">
+    <button id="theme-toggle" class="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">
+      <span id="theme-icon-light">{%- include icon.html name="sun" -%}</span>
+      <span id="theme-icon-dark" style="display:none;">{%- include icon.html name="moon" -%}</span>
+    </button>
 
-  {% if site.data.navigation %}
+    {% if site.data.navigation %}
     <nav class="site-nav">
       <input type="checkbox" id="nav-trigger" class="nav-trigger" />
       <label for="nav-trigger" title="nav-trigger">
@@ -40,5 +41,6 @@
         {%- endfor -%}
       </ul>
     </nav>
-  {% endif %}
+    {% endif %}
+  </div>
 </div>

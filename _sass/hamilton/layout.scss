@@ -7,6 +7,10 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: $base-font-size * 3 + 6px 1fr;
+
+  @include media-query($on-small) {
+    grid-template-rows: auto 1fr;
+  }
 }
 
 /**
@@ -19,23 +23,36 @@
   line-height: $base-font-size * 3;
 
   @include media-query($on-small) {
-    display: flex;
+    border-top: none;
+    min-height: $base-font-size * 2.5;
+    line-height: $base-font-size * 2.5;
   }
 }
 
 .site-sidebar-button {
-  position: absolute;
-  top: 3px;
-  left: $spacing-unit / 2;
+  display: none;
+  background: none;
+  border: none;
+  padding: 0.3em;
+  cursor: pointer;
+  color: inherit;
 
-  img {
-    width: $base-font-size * 2.5;
-    height: auto;
-    border-radius: 50%;
+  svg {
+    width: 1.4em;
+    height: 1.4em;
+    vertical-align: middle;
   }
 
-  @media screen and (min-width: $on-small) {
-    display: none;
+  img {
+    width: $base-font-size * 2;
+    height: auto;
+    border-radius: 50%;
+    vertical-align: middle;
+  }
+
+  @include media-query($on-small) {
+    display: flex;
+    align-items: center;
   }
 }
 
@@ -47,7 +64,10 @@
   float: left;
 
   @include media-query($on-small) {
-    float: center;
+    float: none;
+    flex: 1;
+    text-align: center;
+    @include relative-font-size(1.4);
   }
 }
 
