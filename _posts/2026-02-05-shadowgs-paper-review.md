@@ -2,6 +2,7 @@
 layout: post
 toc: true
 title: "ShadowGS 논문 리뷰 — Shadow를 Geometry Signal로 재정의한 Satellite 3DGS"
+description: "ShadowGS 논문 리뷰. Shadow Consistency Constraint로 위성 영상 3DGS의 geometry 정확도를 대폭 개선한 방법 분석."
 categories: research
 tags:
   - 3dgs

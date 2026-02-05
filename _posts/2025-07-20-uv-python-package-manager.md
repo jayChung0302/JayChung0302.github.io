@@ -2,6 +2,7 @@
 layout: post
 toc: true
 title: "uv — No more pip"
+description: "Rust로 만든 Python 패키지 매니저 uv 사용법. pip 대비 10~100배 빠른 설치 속도와 통합 프로젝트 관리."
 categories: misc
 tags:
   - python

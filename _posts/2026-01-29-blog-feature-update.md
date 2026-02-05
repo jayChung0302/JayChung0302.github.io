@@ -2,6 +2,7 @@
 layout: post
 toc: true
 title: "블로그 기능 업데이트 기록"
+description: "Jekyll 블로그에 다크 모드, Lunr.js 검색, Disqus 댓글, AdSense 광고를 추가한 과정 정리."
 categories: misc
 tags:
   - jekyll

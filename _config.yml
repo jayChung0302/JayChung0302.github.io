@@ -1,6 +1,6 @@
 title: DOTP
 url: https://jaychung0302.github.io
-description: Dump Of The Probing
+description: "3D Gaussian Splatting, Remote Sensing, AI 관련 기술 블로그. 논문 리뷰와 개발 경험을 공유합니다."
 author: Nate
 avatar: /assets/images/selfie1.png
 email: whtnek@gmail.com
@@ -29,7 +29,7 @@ exclude:
 # Jekyll SEO Tag (Optional)
 # =========================
 twitter:
-  username: ngzhio
+  username: jaychung0302
   card: summary
 logo: /assets/images/selfie2.jpg
 og_image: /assets/images/selfie1.png

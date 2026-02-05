@@ -1,7 +1,8 @@
 ---
 layout: post
-toc: False
+toc: false
 title: "Obsidian 과 PARA"
+description: "Obsidian과 PARA 방법론을 활용한 메모 정리 체계. 프로젝트 중심 정보 관리로 생산성 향상."
 categories: misc
 tags:
   - para

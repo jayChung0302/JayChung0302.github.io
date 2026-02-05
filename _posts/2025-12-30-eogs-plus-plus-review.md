@@ -2,6 +2,7 @@
 layout: post
 toc: true
 title: "EOGS++ 리뷰 — Satellite Gaussian Splatting의 End-to-End 가능성"
+description: "EOGS++ 논문 리뷰. Internal BA와 PAN-only 학습으로 위성 영상 3D 복원의 end-to-end pipeline 구현."
 categories: research
 tags:
   - 3dgs

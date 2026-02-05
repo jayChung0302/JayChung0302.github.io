@@ -2,6 +2,7 @@
 layout: post
 toc: true
 title: "부팀장 1개월 회고"
+description: "R&D 팀 부팀장 1개월 회고. Daily scrum 도입, 기간 산정 원칙, 투명성과 예측 가능성 중심의 팀 운영 경험."
 categories: misc
 tags:
   - leadership

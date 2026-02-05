@@ -2,6 +2,7 @@
 layout: post
 toc: false
 title: "AI 활용 개발, 어디까지 맡길 것인가"
+description: "AI 코딩 도구 활용 원칙. Reading 능력 활용, 간단한 태스크 위임, Test-Driven 개발의 중요성."
 categories: misc
 tags:
   - ai

@@ -2,6 +2,7 @@
 layout: post
 toc: false
 title: Jekyll blog setup
+description: "M1 Mac에서 rbenv로 Ruby 설치하고 Jekyll 블로그를 세팅하는 방법. 버전 불일치 문제 해결 포함."
 categories: misc
 tags:
   - jekyll

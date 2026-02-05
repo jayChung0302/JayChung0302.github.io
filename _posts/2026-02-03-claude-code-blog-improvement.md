@@ -2,6 +2,7 @@
 layout: post
 toc: true
 title: "Claude Code 로 블로그 개선한 후기"
+description: "Anthropic Claude Code CLI 에이전트로 Jekyll 블로그를 분석하고 FontAwesome 제거, 접근성 개선 등을 수행한 경험."
 categories: misc
 tags:
   - claude

@@ -2,6 +2,7 @@
 layout: post
 toc: true
 title: "EOGS 논문 리뷰 — 3D Gaussian Splatting을 Satellite Photogrammetry에 적용"
+description: "EOGS 논문 리뷰. 3D Gaussian Splatting을 위성 영상에 적용해 EO-NeRF 대비 300배 빠른 속도로 DSM을 생성하는 방법."
 categories: misc
 tags:
   - computer-vision
