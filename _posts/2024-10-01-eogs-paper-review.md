@@ -15,7 +15,7 @@ author: Nate
 
 EO-NeRF가 satellite DSM 품질에서는 최고 수준이라는 건 이미 입증된 사실이다. 하지만 training time이 수 시간에서 수십 시간이 걸린다는 건, national-scale 처리를 생각하면 현실적이지 않다.
 
-EOGS는 이 문제를 정면으로 건드린다. 3D Gaussian Splatting을 satellite photogrammetry에 본격 적용해서, EO-NeRF 수준의 DSM accuracy를 유지하면서 속도를 약 300배 끌어올린 논문이다. 단순히 "GS를 satellite에 써봤다"가 아니라, representation과 loss 설계를 remote sensing에 맞게 근본적으로 다시 짠 점이 인상적이었다.
+EOGS는 이 문제를 태클한다. 3D Gaussian Splatting을 satellite photogrammetry에 본격 적용해서, EO-NeRF 수준의 DSM accuracy를 유지하면서 속도를 약 300배 끌어올린 논문이다. 단순히 "GS를 satellite에 써봤다"가 아니라, representation과 loss 설계를 remote sensing에 맞게 근본적으로 다시 짠 점이 인상적이었다.
 
 ## 핵심 용어 정리
 
@@ -165,7 +165,5 @@ EOGS는 단순한 "GS 적용 논문"이 아니다.
 - **Affine camera 근사 + GS는 national-scale에서도 유효**하다
 - **Shadow는 rendering effect가 아니라 geometry constraint**다
 - 3DGS 계열은 shadow consistency, view consistency, opacity pressure 같은 explicit loss 없이는 remote sensing에 불완전하다
-
-ShadowGS는 사실상 EOGS의 "physics & geometry 강화 버전"이며, EOGS → ShadowGS는 매우 자연스러운 진화 경로다.
 
 > 한 줄 정리: EOGS는 3DGS를 satellite photogrammetry에 적용하기 위해 camera model, shadow, regularization을 근본부터 재설계하고, EO-NeRF 대비 300배 빠른 속도에 거의 동등한 DSM accuracy를 달성했다.
