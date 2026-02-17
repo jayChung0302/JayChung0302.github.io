@@ -1,6 +1,7 @@
 ---
 layout: post
 toc: true
+math: true
 title: "DINOv3 논문 리뷰 — Self-Supervised Vision Foundation Model"
 description: "DINOv3 논문 리뷰. Gram anchoring으로 dense feature collapse 문제를 해결한 Vision Foundation Model."
 categories: misc
