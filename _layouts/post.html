@@ -91,20 +91,20 @@ layout: default
     </script>
 
     <nav class="post-pagination" role="navigation">
-      {% if page.previous %}
-        <a class="post-previous" href="{{ page.previous.url | relative_url }}">
+      {% if page.next %}
+        <a class="post-previous" href="{{ page.next.url | relative_url }}">
           <h4 class="post-pagination-label">Prev</h4>
           <span class="post-pagination-title">
-            {%- include icon.html name="arrow-left" -%} {{ page.previous.title | markdownify | strip_html }}
+            {%- include icon.html name="arrow-left" -%} {{ page.next.title | markdownify | strip_html }}
           </span>
         </a>
       {% endif %}
 
-      {% if page.next %}
-        <a class="post-next" href="{{ page.next.url | relative_url }}">
+      {% if page.previous %}
+        <a class="post-next" href="{{ page.previous.url | relative_url }}">
           <h4 class="post-pagination-label">Next</h4>
           <span class="post-pagination-title">
-            {{ page.next.title | markdownify | strip_html }} {%- include icon.html name="arrow-right" -%}
+            {{ page.previous.title | markdownify | strip_html }} {%- include icon.html name="arrow-right" -%}
           </span>
         </a>
       {% endif %}
