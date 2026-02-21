@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(bundle exec jekyll serve:*)",
+      "Bash(ruby:*)",
+      "Bash(rbenv version:*)",
+      "Bash(bundle --version:*)",
+      "Bash(bundle install:*)",
+      "Bash(BUNDLE_CACHE_PATH=/Users/chung/workspace/2_area/JayChung0302.github.io/.bundle/cache bundle install:*)",
+      "Bash(HOME_BUNDLE=/tmp/bundle_home mkdir:*)",
+      "Bash(BUNDLE_USER_HOME=/tmp/bundle_home bundle install:*)",
+      "Bash(curl:*)",
+      "WebFetch(domain:jaychung0302.github.io)",
+      "Bash(BUNDLE_USER_HOME=/tmp/bundle_home JEKYLL_ENV=production bundle exec jekyll build:*)",
+      "Bash(gh run list:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(tail:*)"
+    ]
+  }
+}

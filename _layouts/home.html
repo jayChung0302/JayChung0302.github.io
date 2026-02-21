@@ -43,21 +43,50 @@ layout: default
     </ul>
 
     {% if site.paginate %}
+      {% assign total = paginator.total_pages %}
+      {% assign cur = paginator.page %}
+      {% if total > 1 %}
       <div class="pager">
         <ul class="pagination">
-        {%- if paginator.previous_page %}
-          <li><a href="{{ paginator.previous_page_path | relative_url }}" class="previous-page">{{ paginator.previous_page }}</a></li>
-        {%- else %}
-          <li><div class="pager-edge">•</div></li>
-        {%- endif %}
-          <li><div class="current-page">{{ paginator.page }}</div></li>
-        {%- if paginator.next_page %}
-          <li><a href="{{ paginator.next_page_path | relative_url }}" class="next-page">{{ paginator.next_page }}</a></li>
-        {%- else %}
-          <li><div class="pager-edge">•</div></li>
-        {%- endif %}
+          {% assign win_lo = cur | minus: 1 %}
+          {% assign win_hi = cur | plus: 1 %}
+          {% if win_lo < 1 %}
+            {% assign win_lo = 1 %}
+            {% assign win_hi = 3 %}
+          {% endif %}
+          {% if win_hi > total %}
+            {% assign win_hi = total %}
+            {% assign win_lo = total | minus: 2 %}
+          {% endif %}
+          {% if win_lo < 1 %}{% assign win_lo = 1 %}{% endif %}
+          {% assign paginate_path = site.paginate_path | default: '/page:num/' %}
+          {% assign last_shown = 0 %}
+          {% for i in (1..total) %}
+            {% assign in_win = false %}
+            {% if i >= win_lo and i <= win_hi %}{% assign in_win = true %}{% endif %}
+            {% if i == 1 or i == total or in_win %}
+              {% if last_shown > 0 %}
+                {% assign gap = i | minus: last_shown %}
+                {% if gap > 1 %}
+                  <li><div class="pager-edge">…</div></li>
+                {% endif %}
+              {% endif %}
+              {% if i == cur %}
+                <li><div class="current-page">{{ i }}</div></li>
+              {% else %}
+                {% if i == 1 %}
+                  <li><a href="{{ '/' | relative_url }}" class="page-link">{{ i }}</a></li>
+                {% else %}
+                  {% assign page_url = paginate_path | replace: ':num', i %}
+                  <li><a href="{{ page_url | relative_url }}" class="page-link">{{ i }}</a></li>
+                {% endif %}
+              {% endif %}
+              {% assign last_shown = i %}
+            {% endif %}
+          {% endfor %}
         </ul>
       </div>
+      {% endif %}
     {%- endif %}
 
   {%- endif -%}

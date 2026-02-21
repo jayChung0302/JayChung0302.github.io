@@ -138,10 +138,14 @@ ul.post-tags {
       border: 1px dashed $border-color-light;
     }
 
-    a.previous-page, a.next-page {
+    a.previous-page, a.next-page, a.page-link {
       &:hover {
         border-color: $border-color;
       }
+    }
+
+    div.current-page {
+      border-color: $border-color;
     }
   }
 }
