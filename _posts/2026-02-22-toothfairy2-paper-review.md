@@ -2,7 +2,7 @@
 layout: post
 toc: true
 math: true
-title: "ToothFaSiry2 논문 리뷰 — 42-class CBCT Dataset과 Mamba 기반 Maxillofacial Segmentation"
+title: "ToothFairy2 논문 리뷰 — 42-class CBCT Dataset과 Mamba 기반 Maxillofacial Segmentation"
 description: "ToothFairy2 논문 리뷰. 530 CBCT volumes, 42 anatomical classes의 대규모 공개 dataset과 α-shape refinement, nnU-Net customization, Mamba 기반 모델 비교 분석."
 categories: research
 tags:
@@ -12,6 +12,8 @@ tags:
   - mamba
   - dataset
   - cbct
+  - nnUNet
+  - maxillofacial
 author: Nate
 ---
 
@@ -76,7 +78,8 @@ Semi-automated annotation 전략을 사용한다.
 3. Train annotator ≠ Test annotator로 annotator bias 방지
 
 2D slice 단위로 annotation할 때 생기는 **jagged artifact**
-![jagged artifact issue](/imgs/5.png){: width="400"} 문제를 해결하기 위해 α-shape 기반 refinement를 적용한다. 이 부분이 개인적으로 가장 인상적이었다.
+![jagged artifact issue](/imgs/5.png){: width="400"} 
+문제를 해결하기 위해 α-shape 기반 refinement를 적용한다. 이 부분이 개인적으로 가장 인상적이었다.
 
 **α-shape refinement 과정:**
 
@@ -94,7 +97,7 @@ Semi-automated annotation 전략을 사용한다.
 
 - **CNN**: nnU-Net, nnU-Net ResEnc
 - **Transformer**: TransUNet, nnFormer, UNETR++
-- **Mamba-based**: UMamba, VMamba, Swin-UMamba
+- **Mamba-based**: [UMamba](https://u-mamba.github.io/), VMamba, Swin-UMamba
 
 ### nnU-Net Customization — 실무적으로 가장 중요한 파트
 
@@ -109,7 +112,7 @@ Semi-automated annotation 전략을 사용한다.
 | + deeper network | 82.11 |
 | + post-processing | 84.99 |
 
-Mirroring 제거 하나로 +6.6 DSC, 최종적으로 default 대비 **+10 DSC improvement**다. Augmentation이 항상 좋은 게 아니고, domain의 anatomical symmetry 특성을 알고 설계해야 한다는 교훈이다.
+Mirroring 제거 하나로 +6.6 DSC, 최종적으로 default 대비 **+10 DSC improvement**다. Augmentation이 항상 좋은 게 아니고, domain의 anatomical symmetry 특성을 알고 설계해야 한다는 인사이트다.
 
 ## 핵심 결과
 
