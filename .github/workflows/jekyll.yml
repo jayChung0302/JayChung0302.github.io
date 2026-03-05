@@ -27,9 +27,6 @@ jobs:
           ruby-version: '3.3'
           bundler-cache: true
 
-      - name: Add Linux platform if needed
-        run: bundle lock --add-platform x86_64-linux
-
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
