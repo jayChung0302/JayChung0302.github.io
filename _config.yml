@@ -24,6 +24,9 @@ exclude:
   - scripts/
   - README.md
   - jekyll-theme-hamilton.gemspec
+  - CLAUDE.md
+  - HISTORY.md
+  - dump/
 
 # skin: daylight  # Managed by dark mode toggle JavaScript
 # Jekyll SEO Tag (Optional)
@@ -36,8 +39,7 @@ og_image: /assets/images/selfie1.png
 social:
   name: Jisu Chung
   links:
-    - https://twitter.com/ngzhio
-    - https://www.facebook.com/ngzhio
+    - https://twitter.com/jaychung0302
     - https://github.com/jayChung0302
 google_site_verification: u4WXQl0Eu66rsQo2kRdCNx
 lang: ko
