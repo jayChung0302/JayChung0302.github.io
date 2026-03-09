@@ -7,7 +7,7 @@
   var documents = [];
   var idx;
 
-  fetch(searchInput.baseURI.replace(/search\/?$/, '') + 'search.json')
+  fetch(searchInput.dataset.jsonUrl)
     .then(function (response) { return response.json(); })
     .then(function (data) {
       documents = data;

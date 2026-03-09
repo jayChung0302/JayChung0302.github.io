@@ -34,11 +34,7 @@ layout: page
             {%- capture link -%}{{ page.permalink }}#{{ slugified_taxonomy_name }}{%- endcapture -%}
             <a class="taxonomy" href="{{ link | relative_url }}">
               <span>
-                {%- if page.type == 'tags' -%}
-                  {{ slugified_taxonomy_name }}
-                {%- else -%}
-                  {{ taxonomy_name }}
-                {%- endif -%}
+                {{ taxonomy_name }}
               </span>
               <span class="taxonomy-count">{{ posts.size }}</span>
             </a>

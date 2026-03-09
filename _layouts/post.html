@@ -61,7 +61,7 @@ layout: default
           {% for tag in tags %}
             <li class="post-tag">
               {% assign slugified_tag = tag | slugify %}
-              <a href="{{ '/tags/#:tag' | replace: ':tag', slugified_tag | relative_url }}">{{ slugified_tag }}</a>
+              <a href="{{ '/tags/#:tag' | replace: ':tag', slugified_tag | relative_url }}">{{ tag }}</a>
             </li>
           {% endfor %}
         </ul>
@@ -93,7 +93,7 @@ layout: default
     <nav class="post-pagination" role="navigation">
       {% if page.next %}
         <a class="post-previous" href="{{ page.next.url | relative_url }}">
-          <h4 class="post-pagination-label">Prev</h4>
+          <h4 class="post-pagination-label">Newer</h4>
           <span class="post-pagination-title">
             {%- include icon.html name="arrow-left" -%} {{ page.next.title | markdownify | strip_html }}
           </span>
@@ -102,7 +102,7 @@ layout: default
 
       {% if page.previous %}
         <a class="post-next" href="{{ page.previous.url | relative_url }}">
-          <h4 class="post-pagination-label">Next</h4>
+          <h4 class="post-pagination-label">Older</h4>
           <span class="post-pagination-title">
             {{ page.previous.title | markdownify | strip_html }} {%- include icon.html name="arrow-right" -%}
           </span>

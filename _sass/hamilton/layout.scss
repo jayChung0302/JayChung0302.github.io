@@ -122,11 +122,20 @@
     padding: 0;
     overflow: hidden;
 
-    li a {
+    li a,
+    li button.dropbtn {
       line-height: $base-line-height * $base-font-size * 1.15;
       display: inline;
       padding: 5px 10px;
       margin-left: auto;
+    }
+
+    button.dropbtn {
+      background: none;
+      border: none;
+      color: inherit;
+      font: inherit;
+      cursor: pointer;
     }
 
     .dropdown-content {
