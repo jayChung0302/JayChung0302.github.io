@@ -41,6 +41,7 @@ body {
   min-height: 100vh;
   flex-direction: column;
   overflow-wrap: break-word;
+  overflow-x: hidden;
   line-height: $base-line-height;
 }
 
@@ -158,6 +159,8 @@ table {
   width: 100%;
   border-collapse: collapse;
   border: 1px solid;
+  display: block;
+  overflow-x: auto;
   
   th, td {
     padding: ($spacing-unit / 3) ($spacing-unit / 2);
