@@ -1,7 +1,7 @@
 ---
 layout: post
 toc: false
-title: "캐시된 판단"
+title: "캐싱"
 categories: essay
 tags:
   - thinking
