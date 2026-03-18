@@ -11,7 +11,7 @@ plugins:
   - jekyll-sitemap
   - jekyll-paginate
 
-paginate: 4
+paginate: 3
 
 # Google Analytics tracking ID
 google_analytics: G-7GT5Q9K67G 
