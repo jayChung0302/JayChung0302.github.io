@@ -58,6 +58,8 @@ Vanilla attention의 $O(N^2)$ complexity를 줄이기 위해 도입된 efficient
 
 전체 pipeline은 4단계로 정리된다.
 
+![LoFTR 전체 아키텍처 — Local Feature CNN, Coarse-Level Feature Transform, Matching Module, Coarse-to-Fine Module의 4단계 구조](/imgs/loftr_architecture.png)
+
 ### Stage 1: Local Feature CNN
 
 먼저 backbone CNN + FPN으로 multi-level feature를 추출한다.
@@ -71,7 +73,11 @@ Vanilla attention의 $O(N^2)$ complexity를 줄이기 위해 도입된 efficient
 
 Coarse feature map을 flatten한 뒤 positional encoding을 더하고, 그 위에 $N_c$번의 self-attention + cross-attention block을 적용한다. 이 단계의 목적은 단순 descriptor extraction이 아니라, **feature를 position-dependent하고 context-dependent하게 바꾸는 것**이다.
 
-CNN의 local receptive field와 Transformer의 global receptive field 차이가 여기서 드러난다. Low-texture wall 같은 곳도 edge와의 상대적 위치 정보를 통해 구분 가능하다는 것이 핵심이다.
+CNN의 local receptive field와 Transformer의 global receptive field 차이가 여기서 드러난다.
+
+![CNN의 local receptive field vs Transformer의 global receptive field 비교 — low-texture 영역에서도 global context를 통해 feature를 구분할 수 있다](/imgs/loftr_attention.png)
+
+Low-texture wall 같은 곳도 edge와의 상대적 위치 정보를 통해 구분 가능하다는 것이 핵심이다.
 
 Coarse map 전체에 attention을 걸어야 하므로, vanilla attention($O(N^2)$) 대신 **Linear Transformer**를 사용해 $O(N)$으로 complexity를 줄인다.
 

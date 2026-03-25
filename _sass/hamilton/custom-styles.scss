@@ -270,3 +270,8 @@
     margin-top: 0.5em;
   }
 }
+
+// Mobile table overflow
+.post-content {
+  overflow-x: auto;
+}
