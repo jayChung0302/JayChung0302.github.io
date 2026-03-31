@@ -300,6 +300,75 @@
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
 }
 
+// Code block copy button
+.code-block-wrapper {
+  position: relative;
+}
+
+.code-copy-btn {
+  position: absolute;
+  top: 0.4em;
+  right: 0.4em;
+  padding: 0.2em 0.6em;
+  font-size: 0.75rem;
+  border: 1px solid;
+  border-radius: 0.3em;
+  background: inherit;
+  color: inherit;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s;
+
+  .code-block-wrapper:hover & {
+    opacity: 0.7;
+  }
+
+  &:hover {
+    opacity: 1 !important;
+  }
+}
+
+// Heading anchor links
+.heading-anchor {
+  margin-left: 0.4em;
+  opacity: 0;
+  font-weight: normal;
+  font-size: 0.85em;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.2s;
+}
+
+h2:hover .heading-anchor,
+h3:hover .heading-anchor,
+h4:hover .heading-anchor {
+  opacity: 0.4;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+// External link icon
+.external-icon {
+  font-size: 0.75em;
+  opacity: 0.5;
+}
+
+// Reading progress bar
+.reading-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0;
+  background: currentColor;
+  opacity: 0.4;
+  z-index: 9998;
+  transition: width 0.1s linear;
+  pointer-events: none;
+}
+
 // TOC active highlight
 .toc-nav a.toc-active {
   font-weight: bold;
