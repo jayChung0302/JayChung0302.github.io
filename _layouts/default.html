@@ -32,6 +32,10 @@
     </div>
   </div>
   <script defer src="{{ '/assets/js/back-to-top.js' | relative_url }}"></script>
+  <script defer src="{{ '/assets/js/lightbox.js' | relative_url }}"></script>
+  {% if page.toc %}
+  <script defer src="{{ '/assets/js/toc-highlight.js' | relative_url }}"></script>
+  {% endif %}
 </body>
 
 </html>
