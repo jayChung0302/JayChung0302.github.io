@@ -333,6 +333,23 @@
   }
 }
 
+// Typing cursor animation
+.typing-cursor {
+  font-weight: 300;
+  animation: blink 0.7s step-end infinite;
+
+  &.cursor-done {
+    animation: none;
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
 // Header auto-hide on scroll
 .site-header {
   transition: transform 0.3s ease;
