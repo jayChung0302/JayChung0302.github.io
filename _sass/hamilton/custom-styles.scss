@@ -271,9 +271,114 @@
   }
 }
 
-// Mobile table overflow
+// Post list hover effect
+.post-list li {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  padding-left: $spacing-unit / 2;
+  padding-right: $spacing-unit / 2;
+  border-radius: 0.3em;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+}
+
+// Code block language label
+.code-block-wrapper {
+  .code-lang-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0.15em 0.6em;
+    font-size: 0.7rem;
+    font-family: $code-font-family;
+    opacity: 0.5;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    pointer-events: none;
+  }
+}
+
+// Mobile sidebar slide animation
+@media screen and (max-width: 599px) {
+  .site-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 75vw;
+    max-width: 300px;
+    z-index: 200;
+    overflow-y: auto;
+    transform: translateX(-100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: block !important;
+
+    &.sidebar-open {
+      transform: translateX(0);
+    }
+  }
+
+  .sidebar-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 199;
+    background: rgba(0, 0, 0, 0.4);
+
+    &.active {
+      display: block;
+    }
+  }
+}
+
+// Header auto-hide on scroll
+.site-header {
+  transition: transform 0.3s ease;
+
+  &.header-hidden {
+    transform: translateY(-100%);
+  }
+}
+
+// ─── Post content readability ───
 .post-content {
   overflow-x: auto;
+  max-width: 720px;
+  line-height: 1.8;
+
+  // 문단 간격: 헤딩 전에 더 넓은 여백으로 리듬감
+  p {
+    margin-bottom: 1.6rem;
+  }
+
+  // 이미지 전후 호흡
+  img {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  // 인라인 코드 구분 강화
+  code {
+    padding: 0.15em 0.4em;
+    border-radius: 0.25em;
+    font-size: 0.88em;
+  }
+}
+
+// Blockquote 스타일 강화
+blockquote {
+  border-left: 4px solid;
+  padding: 1rem 1.2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 0 0.3em 0.3em 0;
+  opacity: 0.9;
+
+  p:last-child {
+    margin-bottom: 0;
+  }
 }
 
 // Image lightbox

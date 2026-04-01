@@ -236,13 +236,8 @@
   }
 
   @include media-query($on-small) {
-    display: none;
     border-right: none;
     border-bottom: 1px solid;
-  }
-
-  @media screen and (min-width: $on-small) {
-    display: block !important;
   }
 }
 
@@ -448,10 +443,10 @@ ul.social-icons {
  * Posts
  */
 .post-header {
-  padding-top: $spacing-unit * 2;
+  padding-top: $spacing-unit;
   padding-bottom: $spacing-unit;
   border-bottom: 1px solid;
-  margin-bottom: $spacing-unit * 2;
+  margin-bottom: $spacing-unit * 1.5;
   text-align: center;
 }
 

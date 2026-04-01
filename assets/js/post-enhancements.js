@@ -18,6 +18,34 @@
     btn.textContent = 'Copy';
     wrapper.appendChild(btn);
 
+    // Language label from highlight class (e.g. "highlight-python" or code class "language-python")
+    var code = block.querySelector('code');
+    var lang = '';
+    if (code) {
+      var cls = code.className || '';
+      var match = cls.match(/language-(\w+)/);
+      if (match) lang = match[1];
+    }
+    if (!lang) {
+      var highlightDiv = block.querySelector('[class*="highlight-"]');
+      if (highlightDiv) {
+        var hMatch = highlightDiv.className.match(/highlight-(\w+)/);
+        if (hMatch) lang = hMatch[1];
+      }
+    }
+    if (!lang) {
+      // Jekyll Rouge: class on the div.highlight itself
+      var blockClass = block.className || '';
+      var bMatch = blockClass.match(/language-(\w+)/);
+      if (bMatch) lang = bMatch[1];
+    }
+    if (lang) {
+      var label = document.createElement('span');
+      label.className = 'code-lang-label';
+      label.textContent = lang;
+      wrapper.appendChild(label);
+    }
+
     btn.addEventListener('click', function () {
       var code = block.querySelector('code');
       if (!code) return;
