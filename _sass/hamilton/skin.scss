@@ -70,6 +70,7 @@ table {
 
 .site-sidebar {
   border-color: $border-color-light;
+  --sidebar-bg: #{$background-color};
 }
 
 .site-title {
