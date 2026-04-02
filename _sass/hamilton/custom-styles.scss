@@ -300,6 +300,11 @@
   }
 }
 
+// Hide sidebar close button on desktop
+.sidebar-close-btn {
+  display: none;
+}
+
 // Mobile sidebar slide animation
 @media screen and (max-width: 599px) {
   .site-sidebar {
