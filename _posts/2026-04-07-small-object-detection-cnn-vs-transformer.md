@@ -1,7 +1,7 @@
 ---
 layout: post
 toc: false
-title: "항공/위성 영상 Small Object Detection — CNN의 효율을 넘어 Transformer의 성능으로"
+title: "소형 객체 탐지에서 CNN vs Transformer, 뭐가 더 유리한가요?"
 categories: ai
 tags:
   - computer-vision
