@@ -27,7 +27,7 @@
           {%- if nav.title -%}
             {% if nav.sublinks %}
               <li class="dropdown">
-                <button type="button" class="dropbtn" aria-expanded="false">{{ nav.title | escape }}</button>
+                <button type="button" class="dropbtn" aria-expanded="false" onclick="this.parentElement.classList.toggle('open');this.setAttribute('aria-expanded',this.parentElement.classList.contains('open'))">{{ nav.title | escape }}</button>
                 <div class="dropdown-content">
                   {%- for link in nav.sublinks %}
                     <a class="{% if page.url == link.url %}current-page{% endif %}" href="{{ link.url | relative_url }}">{{ link.title | escape }}</a>

@@ -11,7 +11,10 @@
     return document.documentElement.getAttribute('data-theme') || 'daylight';
   }
 
-  function setTheme(theme) {
+  function setTheme(theme, animate) {
+    if (animate) {
+      document.documentElement.classList.add('theme-transition');
+    }
     if (theme === 'midnight') {
       skinDaylight.disabled = true;
       skinMidnight.disabled = false;
@@ -25,6 +28,11 @@
     }
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
+    if (animate) {
+      setTimeout(function () {
+        document.documentElement.classList.remove('theme-transition');
+      }, 350);
+    }
   }
 
   // Sync icon state with theme set by early-init script in head.html
@@ -34,7 +42,7 @@
 
   toggleButton.addEventListener('click', function () {
     var next = (getCurrentTheme() === 'daylight') ? 'midnight' : 'daylight';
-    setTheme(next);
+    setTheme(next, true);
   });
 
   // Listen for system preference changes
