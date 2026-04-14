@@ -2,7 +2,7 @@
 $icon-size: 1.25em;
 
 // Shared icon-button base (ghost button with no border)
-%icon-btn-base {
+@mixin icon-btn-base {
   background: none;
   border: none;
   color: inherit;
@@ -29,7 +29,7 @@ $icon-size: 1.25em;
 }
 
 // Shared outlined-button base (bordered button)
-%outlined-btn-base {
+@mixin outlined-btn-base {
   background: none;
   border: 1px solid;
   border-radius: 0.3em;
@@ -148,7 +148,7 @@ html.theme-transition *::after {
 
 // Dark mode toggle button
 .theme-toggle {
-  @extend %icon-btn-base;
+  @include icon-btn-base;
   font-size: 1.1rem;
   vertical-align: middle;
 }
@@ -272,14 +272,14 @@ html.theme-transition *::after {
   padding-top: $spacing-unit / 2;
 
   a, button {
-    @extend %outlined-btn-base;
+    @include outlined-btn-base;
     text-decoration: none;
   }
 }
 
 // Back to top button
 .back-to-top {
-  @extend %outlined-btn-base;
+  @include outlined-btn-base;
   position: sticky;
   bottom: $spacing-unit;
   float: right;
@@ -385,7 +385,7 @@ html.theme-transition *::after {
     padding: 0.6em 0;
 
     button {
-      @extend %icon-btn-base;
+      @include icon-btn-base;
       font-size: 1.3rem;
       opacity: 0.5;
 
