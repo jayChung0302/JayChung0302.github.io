@@ -151,6 +151,15 @@ ul.post-tags {
   }
 }
 
+.page-jump-input,
+.page-jump-btn {
+  border-color: $border-color-light;
+}
+
+.page-jump-btn:hover {
+  border-color: $border-color;
+}
+
 .taxonomy-count {
   color: $text-color-light;
 }

@@ -40,7 +40,7 @@
 
   searchInput.addEventListener('input', function () {
     var query = this.value.trim();
-    if (query.length < 2) {
+    if (query.length < 1) {
       resultsContainer.innerHTML = '';
       noResults.style.display = 'none';
       return;
@@ -63,7 +63,7 @@
     }
 
     noResults.style.display = 'none';
-    var html = '';
+    var html = '<li class="search-result-count">' + results.length + '개의 결과</li>';
     results.forEach(function (result) {
       var doc = documents.find(function (d) { return d.url === result.ref; });
       if (doc) {

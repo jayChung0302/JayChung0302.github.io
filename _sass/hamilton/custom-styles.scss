@@ -149,6 +149,14 @@ html.theme-transition *::after {
   list-style: none;
   padding: 0;
 
+  .search-result-count {
+    font-size: 0.85rem;
+    opacity: 0.6;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: none;
+  }
+
   li {
     margin-bottom: $spacing-unit;
     padding-bottom: $spacing-unit / 2;
@@ -289,6 +297,10 @@ html.theme-transition *::after {
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+    [data-theme="midnight"] & {
+      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.06);
+    }
   }
 }
 
@@ -476,12 +488,44 @@ blockquote {
   }
 }
 
+.lightbox-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  opacity: 0.7;
+  line-height: 1;
+  padding: 0.2em 0.4em;
+
+  &:hover,
+  &:focus-visible {
+    opacity: 1;
+  }
+
+  &:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 2px;
+    border-radius: 3px;
+  }
+}
+
 .lightbox-img {
   max-width: 90vw;
   max-height: 90vh;
   object-fit: contain;
   border-radius: 0.3em;
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+  cursor: default;
+
+  &:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 4px;
+    border-radius: 3px;
+  }
 }
 
 // Code block copy button
@@ -493,6 +537,7 @@ blockquote {
   position: absolute;
   top: 0.4em;
   right: 0.4em;
+  // Accessible: always visible to keyboard/screen readers
   padding: 0.2em 0.6em;
   font-size: 0.75rem;
   border: 1px solid;
@@ -500,10 +545,11 @@ blockquote {
   background: inherit;
   color: inherit;
   cursor: pointer;
-  opacity: 0;
+  opacity: 0.4;
   transition: opacity 0.2s;
 
-  .code-block-wrapper:hover & {
+  .code-block-wrapper:hover &,
+  &:focus-visible {
     opacity: 0.7;
   }
 

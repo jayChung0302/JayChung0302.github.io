@@ -2,7 +2,7 @@
  * Site container
  */
 .site-container {
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   display: grid;
   grid-template-columns: 1fr;
@@ -439,6 +439,51 @@ ul.social-icons {
     div.current-page {
       font-weight: bold;
     }
+  }
+}
+
+.page-jump {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+}
+
+.page-jump-input {
+  width: 5rem;
+  padding: $spacing-unit / 6;
+  border: 1px solid;
+  text-align: center;
+  font-size: 0.9rem;
+  border-radius: 3px;
+  background: inherit;
+  color: inherit;
+
+  &::placeholder {
+    opacity: 0.5;
+  }
+
+  /* Hide number input spinners */
+  -moz-appearance: textfield;
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+.page-jump-btn {
+  padding: $spacing-unit / 6 $spacing-unit / 3;
+  border: 1px solid;
+  border-radius: 3px;
+  background: none;
+  color: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.7;
   }
 }
 
