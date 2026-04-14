@@ -85,7 +85,7 @@ layout: default
             {% endif %}
           {% endfor %}
         </ul>
-        <form class="page-jump" aria-label="Go to page" onsubmit="var p=parseInt(this.querySelector('input').value);if(p>=1&&p<={{ total }}){location.href=p===1?'{{ "/" | relative_url }}':'{{ site.paginate_path | default: "/page:num/" | replace: ":num", "PAGE_NUM" | relative_url }}'.replace('PAGE_NUM',p);}return false;">
+        <form class="page-jump" aria-label="Go to page" onsubmit="var p=parseInt(this.querySelector('input').value);if(p>=1&&p<={{ total }}){location.href=p===1?'{{ "/" | relative_url }}':'{{ paginate_path | replace: ":num", "PAGE_NUM" | relative_url }}'.replace('PAGE_NUM',p);}return false;">
           <input type="number" min="1" max="{{ total }}" placeholder="{{ cur }}/{{ total }}" aria-label="Page number" class="page-jump-input">
           <button type="submit" class="page-jump-btn">Go</button>
         </form>

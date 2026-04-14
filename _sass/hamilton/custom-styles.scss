@@ -312,10 +312,10 @@ html.theme-transition *::after {
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
 
-    [data-theme="midnight"] & {
-      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.06);
-    }
+  [data-theme="midnight"] &:hover {
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.06);
   }
 }
 
