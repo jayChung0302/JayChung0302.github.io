@@ -37,9 +37,19 @@
   cursor: pointer;
   color: inherit;
 
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &:focus-visible {
+    outline: 2px solid;
+    outline-offset: 2px;
+    border-radius: 3px;
+  }
+
   svg {
-    width: 1.4em;
-    height: 1.4em;
+    width: 1.25em;
+    height: 1.25em;
     vertical-align: middle;
   }
 

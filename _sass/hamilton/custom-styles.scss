@@ -1,3 +1,62 @@
+// Shared icon size
+$icon-size: 1.25em;
+
+// Shared icon-button base (ghost button with no border)
+%icon-btn-base {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  padding: 0.3em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    width: $icon-size;
+    height: $icon-size;
+  }
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &:focus-visible {
+    outline: 2px solid;
+    outline-offset: 2px;
+    border-radius: 3px;
+  }
+}
+
+// Shared outlined-button base (bordered button)
+%outlined-btn-base {
+  background: none;
+  border: 1px solid;
+  border-radius: 0.3em;
+  color: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  padding: 0.4em 0.8em;
+  font-size: 0.8rem;
+
+  svg {
+    width: 1em;
+    height: 1em;
+  }
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &:focus-visible {
+    outline: 2px solid;
+    outline-offset: 2px;
+    border-radius: 3px;
+  }
+}
+
 // Theme transition for smooth dark mode switching
 html.theme-transition,
 html.theme-transition *,
@@ -89,22 +148,9 @@ html.theme-transition *::after {
 
 // Dark mode toggle button
 .theme-toggle {
-  background: none;
-  border: none;
-  cursor: pointer;
+  @extend %icon-btn-base;
   font-size: 1.1rem;
-  padding: 0.3em 0.5em;
-  color: inherit;
   vertical-align: middle;
-
-  &:hover {
-    opacity: 0.7;
-  }
-
-  &:focus-visible {
-    outline: 2px solid;
-    outline-offset: 2px;
-  }
 }
 
 // Inline SVG icon defaults
@@ -112,13 +158,15 @@ html.theme-transition *::after {
 .social-icon svg,
 .post-meta svg,
 .post-pagination svg {
+  width: $icon-size;
+  height: $icon-size;
   vertical-align: -0.125em;
 }
 
-// Social icon sizing (replaces fa-2x)
+// Social icons slightly larger for tap targets
 .social-icon svg {
-  width: 1.6em;
-  height: 1.6em;
+  width: 1.5em;
+  height: 1.5em;
 }
 
 // Social icon color (inherit from skin)
@@ -224,56 +272,23 @@ html.theme-transition *::after {
   padding-top: $spacing-unit / 2;
 
   a, button {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.3em;
-    padding: 0.4em 0.8em;
-    border: 1px solid;
-    border-radius: 0.3em;
-    font-size: 0.8rem;
+    @extend %outlined-btn-base;
     text-decoration: none;
-    color: inherit;
-    background: none;
-    cursor: pointer;
-
-    &:hover {
-      opacity: 0.7;
-    }
-
-    &:focus-visible {
-      outline: 2px solid;
-      outline-offset: 2px;
-    }
-
-    svg {
-      width: 1em;
-      height: 1em;
-    }
   }
 }
 
 // Back to top button
 .back-to-top {
+  @extend %outlined-btn-base;
   position: sticky;
   bottom: $spacing-unit;
   float: right;
-  background: none;
-  border: 1px solid;
-  border-radius: 0.3em;
-  padding: 0.4em 0.8em;
   font-size: $base-font-size * 0.8;
   text-transform: uppercase;
-  cursor: pointer;
-  color: inherit;
   opacity: 0.6;
 
   &:hover {
     opacity: 1;
-  }
-
-  &:focus-visible {
-    outline: 2px solid;
-    outline-offset: 2px;
   }
 
   svg {
@@ -370,23 +385,12 @@ html.theme-transition *::after {
     padding: 0.6em 0;
 
     button {
-      background: none;
-      border: none;
-      color: inherit;
-      cursor: pointer;
+      @extend %icon-btn-base;
       font-size: 1.3rem;
-      padding: 0.4em;
       opacity: 0.5;
-      display: flex;
-      align-items: center;
 
       &:hover {
         opacity: 1;
-      }
-
-      svg {
-        width: 1.2em;
-        height: 1.2em;
       }
     }
   }
