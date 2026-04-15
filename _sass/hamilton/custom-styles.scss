@@ -169,9 +169,20 @@ html.theme-transition *::after {
   height: 1.5em;
 }
 
-// Social icon color (inherit from skin)
+// Social icon color — force text color (override default link color)
 .social-icon {
   color: inherit;
+
+  // Override <a> default link color so social icons match text, not link blue
+  &:link,
+  &:visited {
+    color: inherit;
+  }
+
+  &:hover,
+  &:focus-visible {
+    opacity: 0.7;
+  }
 }
 
 // Search page styles
@@ -376,6 +387,90 @@ html.theme-transition *::after {
 // Hide sidebar close button on desktop
 .sidebar-close-btn {
   display: none;
+}
+
+// Sidebar wrapper switching: ToC on desktop, profile on mobile
+// (rendered together when page.toc is true)
+.sidebar-profile-wrapper {
+  display: none;
+}
+
+@media screen and (max-width: 599px) {
+  .sidebar-toc-wrapper {
+    display: none;
+  }
+  .sidebar-profile-wrapper {
+    display: block;
+  }
+}
+
+// Inline ToC for mobile (inside post content)
+.inline-toc {
+  display: none;
+}
+
+@media screen and (max-width: 599px) {
+  .inline-toc {
+    display: block;
+    margin-bottom: $spacing-unit;
+    border: 1px solid;
+    border-radius: 0.4em;
+    padding: 0.4em 1em;
+
+    summary {
+      cursor: pointer;
+      font-weight: bold;
+      padding: 0.4em 0;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      user-select: none;
+
+      &::-webkit-details-marker { display: none; }
+      &::marker { content: ""; }
+
+      &::after {
+        content: "▾";
+        margin-left: auto;
+        font-size: 0.85em;
+        opacity: 0.6;
+        transition: transform 0.2s ease;
+      }
+    }
+
+    &[open] summary::after {
+      transform: rotate(180deg);
+    }
+
+    .inline-toc-nav {
+      padding: 0.5em 0 0.3em;
+      border-top: 1px solid;
+      margin-top: 0.3em;
+      font-size: 0.95rem;
+      line-height: 1.6;
+
+      ul {
+        list-style: none;
+        margin: 0;
+        padding-left: 0;
+      }
+
+      ul ul {
+        padding-left: 1em;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+        opacity: 0.85;
+
+        &:hover {
+          opacity: 1;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
 }
 
 // Mobile sidebar slide animation

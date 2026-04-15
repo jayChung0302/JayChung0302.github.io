@@ -173,6 +173,15 @@ ul.post-tags {
   }
 }
 
+.inline-toc {
+  border-color: $border-color-light;
+  background-color: mix($background-color, $border-color-light, 95%);
+
+  .inline-toc-nav {
+    border-top-color: $border-color-light;
+  }
+}
+
 .site-footer {
   color: $text-color-light;
   border-top-color: $border-color-light;
