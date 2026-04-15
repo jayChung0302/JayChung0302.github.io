@@ -6,13 +6,24 @@
   var noResults = document.getElementById('search-no-results');
   var documents = [];
   var idx;
+  var ready = false;
+  var pendingQuery = null;
 
   fetch(searchInput.dataset.jsonUrl)
-    .then(function (response) { return response.json(); })
+    .then(function (response) {
+      if (!response.ok) throw new Error('search.json fetch failed: ' + response.status);
+      return response.json();
+    })
     .then(function (data) {
       documents = data;
 
       idx = lunr(function () {
+        // Remove English-only pipeline functions for better Korean/multilingual support
+        this.pipeline.remove(lunr.stemmer);
+        this.pipeline.remove(lunr.stopWordFilter);
+        this.searchPipeline.remove(lunr.stemmer);
+        this.searchPipeline.remove(lunr.stopWordFilter);
+
         this.ref('url');
         this.field('title', { boost: 10 });
         this.field('tags', { boost: 5 });
@@ -30,12 +41,22 @@
         }, this);
       });
 
+      ready = true;
+
       var params = new URLSearchParams(window.location.search);
-      var query = params.get('q');
-      if (query) {
-        searchInput.value = query;
-        performSearch(query);
+      var urlQuery = params.get('q');
+      if (urlQuery) {
+        searchInput.value = urlQuery;
+        performSearch(urlQuery);
+      } else if (pendingQuery !== null) {
+        performSearch(pendingQuery);
+        pendingQuery = null;
       }
+    })
+    .catch(function (err) {
+      console.error('Search index init failed:', err);
+      noResults.textContent = '검색 인덱스 로드에 실패했습니다.';
+      noResults.style.display = 'block';
     });
 
   searchInput.addEventListener('input', function () {
@@ -45,15 +66,34 @@
       noResults.style.display = 'none';
       return;
     }
+    if (!ready) {
+      pendingQuery = query;
+      noResults.style.display = 'none';
+      resultsContainer.innerHTML = '<li class="search-result-count">검색 인덱스 로딩 중…</li>';
+      return;
+    }
     performSearch(query);
   });
+
+  function buildQuery(raw) {
+    // Tokenize by whitespace; for each token, search both exact and prefix wildcard
+    return raw.split(/\s+/).filter(Boolean).map(function (t) {
+      var safe = t.replace(/[*+\-:~^()]/g, '');
+      if (!safe) return '';
+      return safe + ' ' + safe + '*';
+    }).join(' ');
+  }
 
   function performSearch(query) {
     var results;
     try {
-      results = idx.search(query);
+      results = idx.search(buildQuery(query));
     } catch (e) {
-      results = idx.search(query.replace(/[*+\-:~^]/g, ''));
+      try {
+        results = idx.search(query.replace(/[*+\-:~^()]/g, ''));
+      } catch (e2) {
+        results = [];
+      }
     }
 
     if (results.length === 0) {
