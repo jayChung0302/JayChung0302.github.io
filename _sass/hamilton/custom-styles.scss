@@ -302,6 +302,44 @@ html.theme-transition *::after {
   }
 }
 
+// Random post button (sidebar)
+.random-post-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  background: none;
+  border: 1px solid;
+  border-radius: 0.3em;
+  padding: 0.4em 0.8em;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.9rem;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+
+  &:hover {
+    opacity: 0.75;
+
+    .sidebar-icon {
+      transform: rotate(15deg);
+    }
+  }
+
+  &:active .sidebar-icon {
+    transform: rotate(360deg);
+  }
+
+  &:focus-visible {
+    outline: 2px solid;
+    outline-offset: 2px;
+  }
+
+  .sidebar-icon {
+    display: inline-block;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
 // Post list hover effect
 .post-list li {
   transition: transform 0.2s ease, box-shadow 0.2s ease;

@@ -47,6 +47,31 @@
 </div>
 {%- endif %}
 
+{% if site.posts.size > 0 -%}
+<div class="sidebar-section">
+  <button type="button" class="random-post-btn" id="random-post-btn">
+    <span class="sidebar-icon" aria-hidden="true">🎲</span><span>랜덤 글</span>
+  </button>
+</div>
+<script>
+  (function () {
+    var btn = document.getElementById('random-post-btn');
+    if (!btn) return;
+    var urls = [
+      {%- for post in site.posts -%}
+        {{ post.url | relative_url | jsonify }}{%- unless forloop.last -%},{%- endunless -%}
+      {%- endfor -%}
+    ];
+    btn.addEventListener('click', function () {
+      if (!urls.length) return;
+      var current = location.pathname;
+      var pool = urls.length > 1 ? urls.filter(function (u) { return u !== current; }) : urls;
+      location.href = pool[Math.floor(Math.random() * pool.length)];
+    });
+  })();
+</script>
+{%- endif %}
+
 {% if site.data.social -%}
 <div class="sidebar-section">
   <ul class="social-icons">

@@ -164,6 +164,15 @@ ul.post-tags {
   color: $text-color-light;
 }
 
+.tag-cloud {
+  border-color: $border-color-light;
+  background-color: mix($background-color, $border-color-light, 92%);
+
+  .tag-cloud-item:hover {
+    background-color: mix($background-color, $border-color-light, 70%);
+  }
+}
+
 .site-footer {
   color: $text-color-light;
   border-top-color: $border-color-light;

@@ -22,6 +22,34 @@ layout: page
   {%- endif -%}
 {%- endfor -%}
 
+{%- if page.type == 'tags' and max_count > 0 -%}
+<div class="tag-cloud" aria-label="Tag cloud">
+  {%- assign min_count = max_count -%}
+  {%- for taxonomy in taxonomies -%}
+    {%- if taxonomy[1].size < min_count -%}
+      {%- assign min_count = taxonomy[1].size -%}
+    {%- endif -%}
+  {%- endfor -%}
+  {%- assign count_range = max_count | minus: min_count -%}
+  {%- if count_range == 0 -%}{%- assign count_range = 1 -%}{%- endif -%}
+
+  {%- assign sorted_tags = taxonomies | sort -%}
+  {%- for taxonomy in sorted_tags -%}
+    {%- assign taxonomy_name = taxonomy[0] -%}
+    {%- assign slugified_taxonomy_name = taxonomy_name | slugify -%}
+    {%- assign posts = taxonomy[1] -%}
+    {%- assign normalized = posts.size | minus: min_count | times: 100 | divided_by: count_range -%}
+    {%- assign font_size = normalized | times: 14 | divided_by: 100 | plus: 8 -%}
+    {%- capture link -%}{{ page.permalink }}#{{ slugified_taxonomy_name }}{%- endcapture -%}
+    <a class="tag-cloud-item" href="{{ link | relative_url }}"
+       style="font-size: {{ font_size }}px;"
+       title="{{ posts.size }} 개의 글">
+      {{ taxonomy_name }}<span class="tag-cloud-count">{{ posts.size }}</span>
+    </a>
+  {%- endfor -%}
+</div>
+{%- endif -%}
+
 <div class="taxonomies-wrapper">
   <ul class="taxonomies">
     {%- for i in (1..max_count) reversed -%}
