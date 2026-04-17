@@ -391,6 +391,12 @@ html.theme-transition *::after {
 
 // Sidebar wrapper switching: ToC on desktop, profile on mobile
 // (rendered together when page.toc is true)
+.sidebar-toc-wrapper {
+  position: sticky;
+  top: 1rem;
+  align-self: start;
+}
+
 .sidebar-profile-wrapper {
   display: none;
 }
