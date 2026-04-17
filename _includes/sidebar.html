@@ -44,15 +44,13 @@
   <a href="{{ 'feed.xml' | relative_url }}">
     <span class="sidebar-icon">{%- include icon.html name="rss" -%}</span><span>Subscribe</span>
   </a>
+  {% if site.posts.size > 0 -%}
+  <button type="button" class="random-post-btn" id="random-post-btn" aria-label="랜덤 글로 이동" title="랜덤 글로 이동">🎲</button>
+  {%- endif %}
 </div>
 {%- endif %}
 
 {% if site.posts.size > 0 -%}
-<div class="sidebar-section">
-  <button type="button" class="random-post-btn" id="random-post-btn" aria-label="랜덤 글로 이동" title="랜덤 글로 이동">
-    <span class="sidebar-icon" aria-hidden="true">🎲</span>
-  </button>
-</div>
 <script>
   (function () {
     var btn = document.getElementById('random-post-btn');
