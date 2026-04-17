@@ -18,9 +18,12 @@
       documents = data;
 
       idx = lunr(function () {
-        // Remove English-only pipeline functions for better Korean/multilingual support
+        // Remove English-only pipeline functions for Korean/multilingual support
+        // lunr.trimmer uses \W which strips all non-ASCII (including Korean)
+        this.pipeline.remove(lunr.trimmer);
         this.pipeline.remove(lunr.stemmer);
         this.pipeline.remove(lunr.stopWordFilter);
+        this.searchPipeline.remove(lunr.trimmer);
         this.searchPipeline.remove(lunr.stemmer);
         this.searchPipeline.remove(lunr.stopWordFilter);
 
