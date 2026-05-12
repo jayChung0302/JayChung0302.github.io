@@ -7,29 +7,10 @@ layout: default
   {{ content }}
 
   {% if site.paginate %}
-    {% assign source_posts = paginator.posts %}
+    {% assign posts = paginator.posts %}
   {% else %}
-    {% assign source_posts = site.posts %}
+    {% assign posts = site.posts %}
   {% endif %}
-
-  {%- comment -%}
-    Surface technical posts above personal essays within each paginated page,
-    while preserving chronological order inside each group.
-  {%- endcomment -%}
-  {% assign technical_posts = "" | split: "" %}
-  {% assign essay_posts = "" | split: "" %}
-  {% for post in source_posts %}
-    {% assign is_essay = false %}
-    {% for cat in post.categories %}
-      {% if cat == "essay" %}{% assign is_essay = true %}{% endif %}
-    {% endfor %}
-    {% if is_essay %}
-      {% assign essay_posts = essay_posts | push: post %}
-    {% else %}
-      {% assign technical_posts = technical_posts | push: post %}
-    {% endif %}
-  {% endfor %}
-  {% assign posts = technical_posts | concat: essay_posts %}
 
   {%- if posts.size > 0 -%}
     <ul class="post-list">
