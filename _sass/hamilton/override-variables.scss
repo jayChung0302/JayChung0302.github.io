@@ -1,1 +1,29 @@
 // Placeholder to allow overriding predefined variables.
+
+// 한국어 본문이 주류인 블로그라서, font-family 스택에 한국어 시스템 폰트를
+// 명시적으로 끼워 넣음. iOS의 Apple SD Gothic Neo, macOS의 동일 폰트,
+// Windows의 맑은 고딕, Android의 Noto Sans CJK를 우선 fallback으로 잡아
+// Latin 폰트와의 메트릭 불일치를 줄인다.
+$base-font-family:
+  "Open Sans",
+  "Apple SD Gothic Neo",
+  "Malgun Gothic",
+  "맑은 고딕",
+  "Noto Sans KR",
+  sans-serif;
+
+$reading-font-family:
+  "Roboto Slab",
+  "Apple SD Gothic Neo",
+  "Noto Serif KR",
+  "Noto Serif SC",
+  "Noto Serif TC",
+  serif;
+
+$headline-font-family:
+  Roboto,
+  "Apple SD Gothic Neo",
+  "Noto Sans KR",
+  "Noto Sans SC",
+  "Noto Sans TC",
+  sans-serif;

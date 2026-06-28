@@ -32,11 +32,10 @@ ul, ol, dl, figure, iframe,
 body {
   font-family: $base-font-family;
   -webkit-text-size-adjust: 100%;
-  -webkit-font-feature-settings: "kern" 1;
-     -moz-font-feature-settings: "kern" 1;
-       -o-font-feature-settings: "kern" 1;
-          font-feature-settings: "kern" 1;
-  font-kerning: normal;
+  // iOS WebKit에서 Latin 폰트(Roboto Slab 등)와 시스템 한국어 폰트
+  // (Apple SD Gothic Neo) 사이 fallback boundary 위에서 커닝이 잘못
+  // 적용되어 공백 양옆 한글이 겹쳐 보이는 문제가 있어 비활성화.
+  font-kerning: none;
   display: flex;
   min-height: 100vh;
   flex-direction: column;
