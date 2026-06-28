@@ -17,7 +17,13 @@
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script&text=DOTP&family=Inconsolata&family=Roboto&family=Roboto+Slab&display=swap">
+<!-- Dancing Script: subset to "DOTP" only (사이트 제목용) -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script&text=DOTP&display=swap">
+<!-- 본문/코드용 폰트는 full unicode-range로 받아야 함.
+     하나의 URL에 text= 와 다른 family를 섞으면 Google Fonts CSS2 API가
+     unicode-range를 모든 family에 적용해, 공백(U+0020) 등이 폰트에서 빠지고
+     iOS WebKit이 fallback 경계에서 advance 계산을 어긋나게 만든다. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inconsolata&family=Roboto&family=Roboto+Slab&display=swap">
 
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/skin-daylight.css' | relative_url }}" id="skin-daylight">
