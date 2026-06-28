@@ -46,9 +46,12 @@ body {
 }
 
 p {
-  -webkit-hyphens: auto;
-      -ms-hyphens: auto;
-          hyphens: auto;
+  // iOS Safari + lang="ko" 조합에서 `hyphens: auto`가 띄어쓰기 양옆
+  // 글리프 advance를 어긋나게 만들어 글자가 겹쳐 보이는 버그가 있어 비활성화.
+  // 한국어는 음절 단위로 줄바꿈되어 하이프네이션이 필요 없음.
+  -webkit-hyphens: manual;
+      -ms-hyphens: manual;
+          hyphens: manual;
 }
 
 hr {
